@@ -25,6 +25,6 @@
   <!-- Extension points defined by the plugin.
        Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
   <extensions defaultExtensionNs="com.intellij">
-
+    <toolWindow factoryClass="net.hirohiso.comprohelper4j.panels.MainPanel" id ="Comprohelper4j" />
   </extensions>
 </idea-plugin>
