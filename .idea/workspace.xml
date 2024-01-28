@@ -4,14 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="37ad1236-f8fb-4a68-a9e4-ea1437a3348e" name="Changes" comment="画面の骨格を作成">
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/net/hirohiso/comprohelper4j/service/TaskExecuteService.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/net/hirohiso/comprohelper4j/service/TaskFetchService.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/net/hirohiso/comprohelper4j/type/SampleIO.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+    <list default="true" id="37ad1236-f8fb-4a68-a9e4-ea1437a3348e" name="Changes" comment="ボタン押下で問題URLから入出力とJavaの実行ができるように実装">
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/net/hirohiso/comprohelper4j/type/TaskResult.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/net/hirohiso/comprohelper4j/panels/MainPanel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/net/hirohiso/comprohelper4j/panels/MainPanel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/net/hirohiso/comprohelper4j/service/TaskExecuteService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/net/hirohiso/comprohelper4j/service/TaskExecuteService.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,6 +82,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Kotlin Class" />
+        <option value="Kotlin Data Class" />
       </list>
     </option>
   </component>
@@ -152,7 +150,7 @@
       <workItem from="1705136623927" duration="4994000" />
       <workItem from="1706418308642" duration="430000" />
       <workItem from="1706418967377" duration="1773000" />
-      <workItem from="1706425954590" duration="3676000" />
+      <workItem from="1706425954590" duration="5514000" />
     </task>
     <task id="LOCAL-00001" summary="プロジェクト作成">
       <option name="closed" value="true" />
@@ -178,7 +176,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705220637517</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="ボタン押下で問題URLから入出力とJavaの実行ができるように実装">
+      <option name="closed" value="true" />
+      <created>1706430076030</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1706430076030</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -214,6 +220,7 @@
     <MESSAGE value="プロジェクト作成" />
     <MESSAGE value="plugin.xmlの初期設定" />
     <MESSAGE value="画面の骨格を作成" />
-    <option name="LAST_COMMIT_MESSAGE" value="画面の骨格を作成" />
+    <MESSAGE value="ボタン押下で問題URLから入出力とJavaの実行ができるように実装" />
+    <option name="LAST_COMMIT_MESSAGE" value="ボタン押下で問題URLから入出力とJavaの実行ができるように実装" />
   </component>
 </project>

@@ -1,5 +1,8 @@
 package net.hirohiso.comprohelper4j.panels
 
+import com.intellij.notification.Notification
+import com.intellij.notification.NotificationType
+import com.intellij.notification.Notifications
 import com.intellij.openapi.project.DumbAware
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.wm.ToolWindow
@@ -18,10 +21,7 @@ class MainPanel : ToolWindowFactory,DumbAware {
     val executeService = TaskExecuteService()
     var taskList :List<SampleIO> = LinkedList()
     override fun createToolWindowContent(project: Project, toolWindow: ToolWindow) {
-
-
         val main = JPanel()
-        val titleLabel = JLabel("settings")
 
         //Main.javaの設定
         val settingMainFilePanel = JPanel()
@@ -41,7 +41,7 @@ class MainPanel : ToolWindowFactory,DumbAware {
         val urlField = JTextField("https://atcoder.jp/contests/abs/tasks/practice_1")
         taskFetchPanel.add(urlField)
         val taskContentPanel = JPanel()
-        taskContentPanel.add(JLabel("問題"))
+        //taskContentPanel.add(JLabel("問題"))
 
         val fetchButton = JButton("実行").apply {
             addActionListener {
@@ -49,12 +49,34 @@ class MainPanel : ToolWindowFactory,DumbAware {
                 urlField.text.let{
                     taskList = fetchService.fetch(it)
                     taskList.forEach { task -> println(task) }
-                    executeService.execute(
+                    val result = executeService.execute(
                         mainpath.text,
                         outpath.text,
                         project,
                         taskList
                     )
+
+                    if(result.all { it -> it.result }){
+                        val notice = Notification(
+                            "Result",
+                            "AC",
+                            "All testcase passed",
+                            NotificationType.INFORMATION
+                        )
+                        Notifications.Bus.notify(notice)
+                    }else{
+                        result.forEach {
+                            if(!it.result){
+                                val notice = Notification(
+                                    "Result",
+                                    "WA",
+                                    it.sample.input,
+                                    NotificationType.ERROR
+                                )
+                                Notifications.Bus.notify(notice)
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -65,12 +87,10 @@ class MainPanel : ToolWindowFactory,DumbAware {
         taskManagerPanel.add(taskContentPanel)
         //2.問題
 
-        main.layout = GridLayout(4, 1)
-        main.add(titleLabel)
+        main.layout = GridLayout(3, 1)
         main.add(settingMainFilePanel)
         main.add(settingOutputPanel)
         main.add(taskManagerPanel)
-
         val content = ContentFactory.getInstance().createContent(main,"",false)
         toolWindow.contentManager.addContent(content)
 
