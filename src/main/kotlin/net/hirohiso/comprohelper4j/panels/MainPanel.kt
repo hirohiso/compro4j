@@ -43,38 +43,58 @@ class MainPanel : ToolWindowFactory,DumbAware {
         val taskContentPanel = JPanel()
         //taskContentPanel.add(JLabel("問題"))
 
-        val fetchButton = JButton("実行").apply {
+        val fetchButton = JButton("取得").apply {
             addActionListener {
                 //ここに取得処理を記載する
                 urlField.text.let{
                     taskList = fetchService.fetch(it)
-                    taskList.forEach { task -> println(task) }
-                    val result = executeService.execute(
-                        mainpath.text,
-                        outpath.text,
-                        project,
-                        taskList
+                    val notice = Notification(
+                        "Success",
+                        "Success",
+                        "loaded contest test case",
+                        NotificationType.INFORMATION
                     )
+                    Notifications.Bus.notify(notice)
+                }
+            }
+        }
+        val execButton = JButton("実行").apply {
+            addActionListener {
+                if(taskList.isEmpty()){
+                    val notice = Notification(
+                        "WARNIG",
+                        "No Test",
+                        "please load contest test case",
+                        NotificationType.WARNING
+                    )
+                    Notifications.Bus.notify(notice)
+                    return@addActionListener
+                }
+                val result = executeService.execute(
+                    mainpath.text,
+                    outpath.text,
+                    project,
+                    taskList
+                )
 
-                    if(result.all { it -> it.result }){
-                        val notice = Notification(
-                            "Result",
-                            "AC",
-                            "All testcase passed",
-                            NotificationType.INFORMATION
-                        )
-                        Notifications.Bus.notify(notice)
-                    }else{
-                        result.forEach {
-                            if(!it.result){
-                                val notice = Notification(
-                                    "Result",
-                                    "WA",
-                                    it.sample.input,
-                                    NotificationType.ERROR
-                                )
-                                Notifications.Bus.notify(notice)
-                            }
+                if(result.all { it -> it.result }){
+                    val notice = Notification(
+                        "Result",
+                        "AC",
+                        "All testcase passed",
+                        NotificationType.INFORMATION
+                    )
+                    Notifications.Bus.notify(notice)
+                }else{
+                    result.forEach {
+                        if(!it.result){
+                            val notice = Notification(
+                                "Result",
+                                "WA",
+                                it.sample.input,
+                                NotificationType.ERROR
+                            )
+                            Notifications.Bus.notify(notice)
                         }
                     }
                 }
@@ -83,6 +103,7 @@ class MainPanel : ToolWindowFactory,DumbAware {
         taskFetchPanel.add(
             fetchButton
         )
+        taskContentPanel.add(execButton)
         taskManagerPanel.add(taskFetchPanel)
         taskManagerPanel.add(taskContentPanel)
         //2.問題
