@@ -11,6 +11,8 @@ import com.intellij.ui.content.ContentFactory
 import net.hirohiso.comprohelper4j.service.TaskExecuteService
 import net.hirohiso.comprohelper4j.service.TaskFetchService
 import net.hirohiso.comprohelper4j.type.SampleIO
+import java.awt.Color
+import java.awt.Dimension
 import java.awt.GridLayout
 import java.util.*
 import javax.swing.*
@@ -25,22 +27,47 @@ class MainPanel : ToolWindowFactory,DumbAware {
 
         //Main.javaの設定
         val settingMainFilePanel = JPanel()
-        val mainpath = JTextField("src/Main.java")
-        settingMainFilePanel.add(JLabel("Main.java Path"))
+        settingMainFilePanel.layout = BoxLayout(settingMainFilePanel,BoxLayout.LINE_AXIS)
+        var labelMain = JLabel("Main.java Path")
+        val mainpath = JTextField("src/Main.java").apply {
+            val fonth = this.getFontMetrics(this.font).height
+            val dim = this.maximumSize
+            dim.height = fonth + 10
+            maximumSize = dim
+        }
+        settingMainFilePanel.add(labelMain)
         settingMainFilePanel.add(mainpath)
+
         //出力先設定
         val settingOutputPanel = JPanel()
-        val outpath = JTextField("out/comprohelper/build")
+        settingOutputPanel.layout = BoxLayout(settingOutputPanel,BoxLayout.X_AXIS)
+
+        val outpath = JTextField("out/comprohelper/build").apply {
+            val fonth = this.getFontMetrics(this.font).height
+            val dim = this.maximumSize
+            dim.height = fonth + 10
+            maximumSize = dim
+        }
+
         settingOutputPanel.add(JLabel("Output Path"))
         settingOutputPanel.add(outpath)
         //問題管理
         val taskManagerPanel = JPanel()
-        BoxLayout(taskManagerPanel,BoxLayout.Y_AXIS)
+        taskManagerPanel.layout = BoxLayout(taskManagerPanel,BoxLayout.Y_AXIS)
         // 1. 問題取得
-        val taskFetchPanel = JPanel()
-        val urlField = JTextField("https://atcoder.jp/contests/abs/tasks/practice_1")
+        val taskFetchPanel = JPanel().apply {
+            layout = BoxLayout(this,BoxLayout.X_AXIS)
+        }
+        val urlField = JTextField("https://atcoder.jp/contests/abs/tasks/practice_1").apply {
+            val fonth = this.getFontMetrics(this.font).height
+            val dim = this.maximumSize
+            dim.height = fonth + 10
+            maximumSize = dim
+        }
         taskFetchPanel.add(urlField)
-        val taskContentPanel = JPanel()
+        val taskContentPanel = JPanel().apply {
+            layout = BoxLayout(this,BoxLayout.Y_AXIS)
+        }
         //taskContentPanel.add(JLabel("問題"))
 
         val fetchButton = JButton("取得").apply {
@@ -108,9 +135,11 @@ class MainPanel : ToolWindowFactory,DumbAware {
         taskManagerPanel.add(taskContentPanel)
         //2.問題
 
-        main.layout = GridLayout(3, 1)
+        main.layout = BoxLayout(main, BoxLayout.Y_AXIS)
         main.add(settingMainFilePanel)
+        main.add(Box.createVerticalStrut(10))
         main.add(settingOutputPanel)
+        main.add(Box.createVerticalStrut(10))
         main.add(taskManagerPanel)
         val content = ContentFactory.getInstance().createContent(main,"",false)
         toolWindow.contentManager.addContent(content)
