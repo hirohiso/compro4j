@@ -7,6 +7,7 @@ import com.intellij.openapi.project.DumbAware
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.wm.ToolWindow
 import com.intellij.openapi.wm.ToolWindowFactory
+import com.intellij.ui.components.JBTextField
 import com.intellij.ui.content.ContentFactory
 import net.hirohiso.comprohelper4j.service.TaskExecuteService
 import net.hirohiso.comprohelper4j.service.TaskFetchService
@@ -58,11 +59,12 @@ class MainPanel : ToolWindowFactory,DumbAware {
         val taskFetchPanel = JPanel().apply {
             layout = BoxLayout(this,BoxLayout.X_AXIS)
         }
-        val urlField = JTextField("https://atcoder.jp/contests/abs/tasks/practice_1").apply {
+        val urlField = JBTextField("").apply {
             val fonth = this.getFontMetrics(this.font).height
             val dim = this.maximumSize
             dim.height = fonth + 10
             maximumSize = dim
+            emptyText.text = "contest page url:ex)https://atcoder.jp/contests/abs/tasks/practice_1"
         }
         taskFetchPanel.add(urlField)
         val taskContentPanel = JPanel().apply {
