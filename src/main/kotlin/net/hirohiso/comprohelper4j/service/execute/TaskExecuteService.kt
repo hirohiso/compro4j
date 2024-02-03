@@ -11,17 +11,17 @@ import java.io.PrintWriter
 import java.util.LinkedList
 
 class TaskExecuteService {
-    fun execute(mainClass : String, output: String, project: Project,tasks : List<SampleIO>): List<TaskResult> {
+    fun execute(mainClass : String, output: String, project: Project,tasks : List<SampleIO>): ExecuteResult{
 
         //SDKのパスを取得
         val sdk = ProjectRootManager.getInstance(project).projectSdk
-        val homepath = sdk?.homePath?:return LinkedList()//todo 戻り値をこう返すのが嫌なので戻りを変更予定
+        val homepath = sdk?.homePath
+            ?:return ExecuteResult.Error(ExecuteError.SdkNotFound)
 
         //Mainクラスのパスを取得
         val mainPath = File(project.basePath, mainClass)
         if (!mainPath.exists()) {
-            showError("Mainクラス not Found")
-            return LinkedList()
+            return ExecuteResult.Error(ExecuteError.MainClassNotFound)
         }
 
         //classファイルの出力場所を取得
@@ -42,7 +42,7 @@ class TaskExecuteService {
             val t2 = actual.trim().split("\\s+".toRegex())
             TaskResult(SampleIO(input,expect),t1 == t2)
         }.toList()
-        return result
+        return ExecuteResult.OK(result)
     }
 
 

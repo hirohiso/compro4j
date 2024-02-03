@@ -88,22 +88,25 @@ class MainPanel : ToolWindowFactory,DumbAware {
                     showError("No Test","please load contest test case")
                     return@addActionListener
                 }
-                val result = executeService.execute(
+                 when (val result = executeService.execute(
                     mainpath.text,
                     outpath.text,
                     project,
                     taskList
-                )
-
-                if(result.all { it -> it.result }){
-                    showSuccess("AC","All testcase passed")
-                }else{
-                    result.forEach {
-                        if(!it.result){
-                            showError("WA",it.sample.input)
+                )) {
+                    is net.hirohiso.comprohelper4j.service.execute.ExecuteResult.Error -> showError("ERROR",result.reason.message)
+                    is net.hirohiso.comprohelper4j.service.execute.ExecuteResult.OK -> if(result.list.all { it -> it.result }){
+                        showSuccess("AC","All testcase passed")
+                    }else{
+                        result.list.forEach {
+                            if(!it.result){
+                                showError("WA",it.sample.input)
+                            }
                         }
                     }
                 }
+
+
             }
         }
         taskFetchPanel.add(
@@ -130,7 +133,7 @@ class MainPanel : ToolWindowFactory,DumbAware {
         val notice = Notification(
             "Error",
             title,
-            "message",
+            message,
             NotificationType.ERROR
         )
         Notifications.Bus.notify(notice)
@@ -141,7 +144,7 @@ class MainPanel : ToolWindowFactory,DumbAware {
         val notice = Notification(
             "Success",
             title,
-            "message",
+            message,
             NotificationType.INFORMATION
         )
         Notifications.Bus.notify(notice)

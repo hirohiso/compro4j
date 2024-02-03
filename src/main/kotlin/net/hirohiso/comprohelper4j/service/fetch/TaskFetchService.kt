@@ -7,11 +7,15 @@ import org.jsoup.Jsoup
 class TaskFetchService {
     fun fetch(url: String): FetchResult {
         println(url)
-        val doc = Jsoup.connect(url).method(Connection.Method.POST).get()
-            ?:return FetchResult.Error(FetchError.ConnectFailed)
+        val doc = try {
+            Jsoup.connect(url).method(Connection.Method.POST).get()
+                ?:return FetchResult.Error(FetchError.ConnectFailed)
+        }catch (e:Exception){
+            return FetchResult.Error(FetchError.ConnectFailed)
+        }
+
         val elements = doc.select("span.lang-ja>div.io-style~div.part>section")
             ?: return FetchResult.Error(FetchError.UnsupportedContestPage)
-
         val list = elements.stream().map { e -> e.select("pre") }.toList()
         //.forEach{e -> println(e.text())}
 

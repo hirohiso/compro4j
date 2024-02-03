@@ -4,12 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="37ad1236-f8fb-4a68-a9e4-ea1437a3348e" name="Changes" comment="バージョンアップ">
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/net/hirohiso/comprohelper4j/service/FetchResult.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="37ad1236-f8fb-4a68-a9e4-ea1437a3348e" name="Changes" comment="取得処理をリファクタ">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/net/hirohiso/comprohelper4j/panels/MainPanel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/net/hirohiso/comprohelper4j/panels/MainPanel.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/net/hirohiso/comprohelper4j/service/TaskFetchService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/net/hirohiso/comprohelper4j/service/TaskFetchService.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/net/hirohiso/comprohelper4j/service/execute/ExecuteResult.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/net/hirohiso/comprohelper4j/service/execute/ExecuteResult.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/net/hirohiso/comprohelper4j/service/execute/TaskExecuteService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/net/hirohiso/comprohelper4j/service/execute/TaskExecuteService.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/net/hirohiso/comprohelper4j/service/fetch/TaskFetchService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/net/hirohiso/comprohelper4j/service/fetch/TaskFetchService.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -119,6 +119,14 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/kotlin/net/hirohiso/comprohelper4j/service/fetch" />
+    </key>
+    <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
+      <recent name="net.hirohiso.comprohelper4j.service.execute" />
+    </key>
+  </component>
   <component name="RunManager" selected="Gradle.Run Plugin">
     <configuration name="comprohelper4j [buildPlugin]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
@@ -170,7 +178,7 @@
       <workItem from="1706745982123" duration="1803000" />
       <workItem from="1706847872334" duration="1151000" />
       <workItem from="1706866091852" duration="1310000" />
-      <workItem from="1706940415812" duration="1728000" />
+      <workItem from="1706940415812" duration="2811000" />
     </task>
     <task id="LOCAL-00001" summary="プロジェクト作成">
       <option name="closed" value="true" />
@@ -252,7 +260,15 @@
       <option name="project" value="LOCAL" />
       <updated>1706793382449</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="取得処理をリファクタ">
+      <option name="closed" value="true" />
+      <created>1706942246912</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1706942246913</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -295,6 +311,7 @@
     <MESSAGE value="デフォルトロゴの削除" />
     <MESSAGE value="テキストフィールドの修正" />
     <MESSAGE value="バージョンアップ" />
-    <option name="LAST_COMMIT_MESSAGE" value="バージョンアップ" />
+    <MESSAGE value="取得処理をリファクタ" />
+    <option name="LAST_COMMIT_MESSAGE" value="取得処理をリファクタ" />
   </component>
 </project>
