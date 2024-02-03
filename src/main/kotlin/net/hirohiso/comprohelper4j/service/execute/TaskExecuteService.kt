@@ -9,6 +9,7 @@ import java.io.File
 import java.io.InputStreamReader
 import java.io.PrintWriter
 import java.util.LinkedList
+import java.util.concurrent.TimeUnit
 
 class TaskExecuteService {
     fun execute(mainClass : String, output: String, project: Project,tasks : List<SampleIO>): ExecuteResult{
@@ -72,7 +73,8 @@ class TaskExecuteService {
         val output = BufferedReader(InputStreamReader(process.inputStream)).use {
             it.readText()
         }
-        val exitCode = process.waitFor()
+        //5秒間待つ
+        val exitCode = process.waitFor(5,TimeUnit.SECONDS)
         return output
     }
 }

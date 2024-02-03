@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="37ad1236-f8fb-4a68-a9e4-ea1437a3348e" name="Changes" comment="通知のグループIDを修正">
+    <list default="true" id="37ad1236-f8fb-4a68-a9e4-ea1437a3348e" name="Changes" comment="出力例とは無関係なpreタグがあった場合に取得しないように修正">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/net/hirohiso/comprohelper4j/panels/MainPanel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/net/hirohiso/comprohelper4j/panels/MainPanel.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/net/hirohiso/comprohelper4j/service/fetch/TaskFetchService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/net/hirohiso/comprohelper4j/service/fetch/TaskFetchService.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/net/hirohiso/comprohelper4j/service/execute/TaskExecuteService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/net/hirohiso/comprohelper4j/service/execute/TaskExecuteService.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -182,7 +181,7 @@
       <workItem from="1706866091852" duration="1310000" />
       <workItem from="1706940415812" duration="3621000" />
       <workItem from="1706944083984" duration="101000" />
-      <workItem from="1706998265215" duration="1510000" />
+      <workItem from="1706998265215" duration="1823000" />
     </task>
     <task id="LOCAL-00001" summary="プロジェクト作成">
       <option name="closed" value="true" />
@@ -288,7 +287,15 @@
       <option name="project" value="LOCAL" />
       <updated>1706943554384</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="出力例とは無関係なpreタグがあった場合に取得しないように修正">
+      <option name="closed" value="true" />
+      <created>1707000239350</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1707000239350</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -334,6 +341,7 @@
     <MESSAGE value="取得処理をリファクタ" />
     <MESSAGE value="エラーが適切に処理できていなかった箇所を修正" />
     <MESSAGE value="通知のグループIDを修正" />
-    <option name="LAST_COMMIT_MESSAGE" value="通知のグループIDを修正" />
+    <MESSAGE value="出力例とは無関係なpreタグがあった場合に取得しないように修正" />
+    <option name="LAST_COMMIT_MESSAGE" value="出力例とは無関係なpreタグがあった場合に取得しないように修正" />
   </component>
 </project>
