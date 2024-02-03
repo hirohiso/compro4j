@@ -1,7 +1,5 @@
-package net.hirohiso.comprohelper4j.service
+package net.hirohiso.comprohelper4j.service.execute
 
-import com.intellij.notification.Notification
-import com.intellij.notification.Notifications
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.roots.ProjectRootManager
 import net.hirohiso.comprohelper4j.type.SampleIO

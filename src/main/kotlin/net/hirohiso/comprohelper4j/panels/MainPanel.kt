@@ -9,12 +9,10 @@ import com.intellij.openapi.wm.ToolWindow
 import com.intellij.openapi.wm.ToolWindowFactory
 import com.intellij.ui.components.JBTextField
 import com.intellij.ui.content.ContentFactory
-import net.hirohiso.comprohelper4j.service.TaskExecuteService
-import net.hirohiso.comprohelper4j.service.TaskFetchService
+import net.hirohiso.comprohelper4j.service.fetch.FetchResult
+import net.hirohiso.comprohelper4j.service.execute.TaskExecuteService
+import net.hirohiso.comprohelper4j.service.fetch.TaskFetchService
 import net.hirohiso.comprohelper4j.type.SampleIO
-import java.awt.Color
-import java.awt.Dimension
-import java.awt.GridLayout
 import java.util.*
 import javax.swing.*
 
@@ -76,27 +74,18 @@ class MainPanel : ToolWindowFactory,DumbAware {
             addActionListener {
                 //ここに取得処理を記載する
                 urlField.text.let{
-                    taskList = fetchService.fetch(it)
-                    val notice = Notification(
-                        "Success",
-                        "Success",
-                        "loaded contest test case",
-                        NotificationType.INFORMATION
-                    )
-                    Notifications.Bus.notify(notice)
+                    when (val result = fetchService.fetch(it)){
+                        is FetchResult.OK -> taskList = result.list
+                        is FetchResult.Error -> showError("ERROR",result.reason.message)
+                    }
+                    showSuccess("Success","loaded contest test case")
                 }
             }
         }
         val execButton = JButton("実行").apply {
             addActionListener {
                 if(taskList.isEmpty()){
-                    val notice = Notification(
-                        "WARNIG",
-                        "No Test",
-                        "please load contest test case",
-                        NotificationType.WARNING
-                    )
-                    Notifications.Bus.notify(notice)
+                    showError("No Test","please load contest test case")
                     return@addActionListener
                 }
                 val result = executeService.execute(
@@ -107,23 +96,11 @@ class MainPanel : ToolWindowFactory,DumbAware {
                 )
 
                 if(result.all { it -> it.result }){
-                    val notice = Notification(
-                        "Result",
-                        "AC",
-                        "All testcase passed",
-                        NotificationType.INFORMATION
-                    )
-                    Notifications.Bus.notify(notice)
+                    showSuccess("AC","All testcase passed")
                 }else{
                     result.forEach {
                         if(!it.result){
-                            val notice = Notification(
-                                "Result",
-                                "WA",
-                                it.sample.input,
-                                NotificationType.ERROR
-                            )
-                            Notifications.Bus.notify(notice)
+                            showError("WA",it.sample.input)
                         }
                     }
                 }
@@ -146,5 +123,27 @@ class MainPanel : ToolWindowFactory,DumbAware {
         val content = ContentFactory.getInstance().createContent(main,"",false)
         toolWindow.contentManager.addContent(content)
 
+    }
+
+    private fun showError(title: String,message:String){
+        println(message)
+        val notice = Notification(
+            "Error",
+            title,
+            "message",
+            NotificationType.ERROR
+        )
+        Notifications.Bus.notify(notice)
+    }
+
+    private fun showSuccess(title:String,message:String){
+        println(message)
+        val notice = Notification(
+            "Success",
+            title,
+            "message",
+            NotificationType.INFORMATION
+        )
+        Notifications.Bus.notify(notice)
     }
 }
