@@ -39,5 +39,8 @@ to retrieve the problem statement and test the input/output example.</br>
        Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
   <extensions defaultExtensionNs="com.intellij">
     <toolWindow factoryClass="net.hirohiso.comprohelper4j.panels.MainPanel" id ="Comprohelper4j" />
+    <notificationGroup id="comprohelper4j"
+                       displayType="BALLOON"
+                       />
   </extensions>
 </idea-plugin>

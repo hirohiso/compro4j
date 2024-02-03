@@ -75,10 +75,13 @@ class MainPanel : ToolWindowFactory,DumbAware {
                 //ここに取得処理を記載する
                 urlField.text.let{
                     when (val result = fetchService.fetch(it)){
-                        is FetchResult.OK -> taskList = result.list
+                        is FetchResult.OK -> {
+                            taskList = result.list
+                            showSuccess("Success","loaded contest test case")
+                        }
                         is FetchResult.Error -> showError("ERROR",result.reason.message)
                     }
-                    showSuccess("Success","loaded contest test case")
+
                 }
             }
         }
@@ -131,7 +134,7 @@ class MainPanel : ToolWindowFactory,DumbAware {
     private fun showError(title: String,message:String){
         println(message)
         val notice = Notification(
-            "Error",
+            "comprohelper4j",
             title,
             message,
             NotificationType.ERROR
@@ -142,7 +145,7 @@ class MainPanel : ToolWindowFactory,DumbAware {
     private fun showSuccess(title:String,message:String){
         println(message)
         val notice = Notification(
-            "Success",
+            "comprohelper4j",
             title,
             message,
             NotificationType.INFORMATION
