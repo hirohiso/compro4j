@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="37ad1236-f8fb-4a68-a9e4-ea1437a3348e" name="Changes" comment="エラーが適切に処理できていなかった箇所を修正">
+    <list default="true" id="37ad1236-f8fb-4a68-a9e4-ea1437a3348e" name="Changes" comment="通知のグループIDを修正">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/net/hirohiso/comprohelper4j/panels/MainPanel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/net/hirohiso/comprohelper4j/panels/MainPanel.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/plugin.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/plugin.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/net/hirohiso/comprohelper4j/service/fetch/TaskFetchService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/net/hirohiso/comprohelper4j/service/fetch/TaskFetchService.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,6 +40,10 @@
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="comprohelper4j" type="f1a62948:ProjectNode" />
                 <item name="Run Configurations" type="7b0102dc:RunConfigurationsNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="comprohelper4j" type="f1a62948:ProjectNode" />
               </path>
             </expand>
             <select />
@@ -113,7 +117,7 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -176,7 +180,9 @@
       <workItem from="1706745982123" duration="1803000" />
       <workItem from="1706847872334" duration="1151000" />
       <workItem from="1706866091852" duration="1310000" />
-      <workItem from="1706940415812" duration="3131000" />
+      <workItem from="1706940415812" duration="3621000" />
+      <workItem from="1706944083984" duration="101000" />
+      <workItem from="1706998265215" duration="1510000" />
     </task>
     <task id="LOCAL-00001" summary="プロジェクト作成">
       <option name="closed" value="true" />
@@ -274,7 +280,15 @@
       <option name="project" value="LOCAL" />
       <updated>1706943306232</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="通知のグループIDを修正">
+      <option name="closed" value="true" />
+      <created>1706943554384</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1706943554384</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -319,6 +333,7 @@
     <MESSAGE value="バージョンアップ" />
     <MESSAGE value="取得処理をリファクタ" />
     <MESSAGE value="エラーが適切に処理できていなかった箇所を修正" />
-    <option name="LAST_COMMIT_MESSAGE" value="エラーが適切に処理できていなかった箇所を修正" />
+    <MESSAGE value="通知のグループIDを修正" />
+    <option name="LAST_COMMIT_MESSAGE" value="通知のグループIDを修正" />
   </component>
 </project>

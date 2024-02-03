@@ -14,10 +14,13 @@ class TaskFetchService {
             return FetchResult.Error(FetchError.ConnectFailed)
         }
 
+        println(doc)
+
         val elements = doc.select("span.lang-ja>div.io-style~div.part>section")
             ?: return FetchResult.Error(FetchError.UnsupportedContestPage)
-        val list = elements.stream().map { e -> e.select("pre") }.toList()
-        //.forEach{e -> println(e.text())}
+        val list = elements.stream().map{e -> e.select("pre:first-of-type")}.toList()
+        //[id^=pre-sample]
+        list.forEach{e -> println(e)}
 
         return FetchResult.OK(
             list.chunked(2).map { pair ->
