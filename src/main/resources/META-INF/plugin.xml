@@ -14,21 +14,13 @@
        Simple HTML elements (text formatting, paragraphs, and lists) can be added inside of <![CDATA[ ]]> tag.
        Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-description -->
   <description><![CDATA[
-    competitive programming helper for Java<br/>
-    競プロ支援プラグイン</br>
-    以下の機能が利用できます</br>
+    <div>competitive programming helper for Java</div>
+        <div>The following features are available:</div>
     <ul>
-    <li>Atcoderの入出力例のテスト</li>
+    <li>Verify input/output examples in AtCoder's Contest Task.</li>
     </ul>
-    問題文のページURL(例:https://atcoder.jp/contests/abs/tasks/practice_1)を指定して、
-    問題文の取得、入出力例のテストができます。</br>
 
-        The following features are available:</br>
-    <ul>
-    <li>Execution of input/output examples in Atcoder</li>
-    </ul>
-You can specify the page URL of the problem statement (e.g. https://atcoder.jp/contests/abs/tasks/practice_1)
-to retrieve the problem statement and test the input/output example.</br>
+<div>You can specify the page URL of the problem statement to parse the problem statement and verify the input/output example.</div>
   ]]></description>
 
   <!-- Product and plugin compatibility requirements.

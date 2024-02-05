@@ -46,12 +46,6 @@ class TaskExecuteService {
         return ExecuteResult.OK(result)
     }
 
-
-
-    private fun showError(message:String){
-        println(message)
-    }
-
     private fun runCommand(project: Project, vararg args: String) {
         val pb = ProcessBuilder(*args)
         val process = pb.directory(File(project.basePath))
@@ -62,7 +56,6 @@ class TaskExecuteService {
     }
 
     private fun execJava(project: Project, input: String, vararg args: String): String{
-        //todo タイムアウト設定
         val pb = ProcessBuilder(*args)
         val process = pb.directory(File(project.basePath))
             .start()

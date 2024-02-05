@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="37ad1236-f8fb-4a68-a9e4-ea1437a3348e" name="Changes" comment="出力例とは無関係なpreタグがあった場合に取得しないように修正">
+    <list default="true" id="37ad1236-f8fb-4a68-a9e4-ea1437a3348e" name="Changes" comment="タイムアウトの処理を暫定で追加">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/net/hirohiso/comprohelper4j/service/execute/TaskExecuteService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/net/hirohiso/comprohelper4j/service/execute/TaskExecuteService.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/plugin.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/plugin.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,10 +41,6 @@
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="comprohelper4j" type="f1a62948:ProjectNode" />
                 <item name="Run Configurations" type="7b0102dc:RunConfigurationsNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="comprohelper4j" type="f1a62948:ProjectNode" />
               </path>
             </expand>
             <select />
@@ -128,7 +126,7 @@
       <recent name="net.hirohiso.comprohelper4j.service.execute" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.Run Plugin">
+  <component name="RunManager" selected="Gradle.comprohelper4j [buildPlugin]">
     <configuration name="comprohelper4j [buildPlugin]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -181,7 +179,9 @@
       <workItem from="1706866091852" duration="1310000" />
       <workItem from="1706940415812" duration="3621000" />
       <workItem from="1706944083984" duration="101000" />
-      <workItem from="1706998265215" duration="1823000" />
+      <workItem from="1706998265215" duration="2350000" />
+      <workItem from="1707000948892" duration="29000" />
+      <workItem from="1707046062075" duration="1170000" />
     </task>
     <task id="LOCAL-00001" summary="プロジェクト作成">
       <option name="closed" value="true" />
@@ -295,7 +295,15 @@
       <option name="project" value="LOCAL" />
       <updated>1707000239350</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="タイムアウトの処理を暫定で追加">
+      <option name="closed" value="true" />
+      <created>1707000433244</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1707000433244</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -342,6 +350,7 @@
     <MESSAGE value="エラーが適切に処理できていなかった箇所を修正" />
     <MESSAGE value="通知のグループIDを修正" />
     <MESSAGE value="出力例とは無関係なpreタグがあった場合に取得しないように修正" />
-    <option name="LAST_COMMIT_MESSAGE" value="出力例とは無関係なpreタグがあった場合に取得しないように修正" />
+    <MESSAGE value="タイムアウトの処理を暫定で追加" />
+    <option name="LAST_COMMIT_MESSAGE" value="タイムアウトの処理を暫定で追加" />
   </component>
 </project>
